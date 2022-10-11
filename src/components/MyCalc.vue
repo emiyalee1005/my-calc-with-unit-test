@@ -5,7 +5,7 @@ const expr = shallowRef("");
 
 function onClick(arg: string | number) {
   if (arg === "DEL") {
-    expr.value = "";
+    expr.value = expr.value.substring(0, expr.value.length - 1);
     return;
   }
   expr.value += arg.toString();
@@ -48,10 +48,25 @@ const result = computed(() => {
 }
 
 .result {
-  height: 40px;
-  line-height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.expr {
+  flex: 1;
   text-align: right;
   border: 1px solid #ddd;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 16px;
+}
+
+.result-number {
+  padding: 0 16px;
+  flex: 1;
+  border: 1px solid #ddd;
+  height: 40px;
+  line-height: 40px;
 }
 
 .keyboard {
