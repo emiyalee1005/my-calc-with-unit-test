@@ -45,11 +45,12 @@ describe("MyCalc", () => {
     await sleep();
 
     // check displayed expr
-    const exprDom = wrapper.element.querySelector(".expr");
+    const exprDom = wrapper.element.querySelector<HTMLDivElement>(".expr");
     expect(exprDom?.innerHTML).toEqual("1+1-1");
 
     // check final result
-    const resultNumberDom = wrapper.element.querySelector(".result-number");
+    const resultNumberDom =
+      wrapper.element.querySelector<HTMLDivElement>(".result-number");
     expect(resultNumberDom?.innerHTML).toEqual("1");
   });
 });
